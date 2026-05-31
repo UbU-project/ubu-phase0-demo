@@ -1,0 +1,25 @@
+{
+  "id": "PHASE0-T009",
+  "title": "Claim register validation",
+  "phase": "v1",
+  "goal": "Validate the claim register: every implemented claim names an existing passing test; statuses valid; required demo claims present.",
+  "allowed_files": [
+    "fixtures/claim_register.json",
+    "tests/test_claim_register_completeness.py"
+  ],
+  "forbidden_files": [
+    "src/ubu_phase0/schema.py",
+    "src/ubu_phase0/claims.py"
+  ],
+  "acceptance_tests": [
+    "python -m pytest tests/test_claim_register_completeness.py"
+  ],
+  "implementation_notes": [
+    "No claims.py module. The loader lives in loop.py from T007.",
+    "For each status=implemented claim, assert the named test exists and passes.",
+    "deferred/mocked claims exempt from the passing-test requirement but still carry modules + a test ref."
+  ],
+  "definition_of_done": [
+    "Completeness test passes."
+  ]
+}

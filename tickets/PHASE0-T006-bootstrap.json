@@ -1,0 +1,28 @@
+{
+  "id": "PHASE0-T006",
+  "title": "Bootstrap",
+  "phase": "v1",
+  "goal": "Provide the minimal default affect profile and qualitative preset selection helpers, delegating expansion to affect.py.",
+  "allowed_files": [
+    "src/ubu_phase0/bootstrap.py",
+    "tests/test_bootstrap_defaults.py"
+  ],
+  "forbidden_files": [
+    "src/ubu_phase0/schema.py",
+    "src/ubu_phase0/planner.py",
+    "src/ubu_phase0/github_ingest.py",
+    "src/ubu_phase0/loop.py",
+    "src/ubu_phase0/cli.py"
+  ],
+  "acceptance_tests": [
+    "python -m pytest tests/test_bootstrap_defaults.py"
+  ],
+  "implementation_notes": [
+    "May import schema and affect.",
+    "Skip-calibration defaults: energy=medium, stress=low, mood_intensity=calm.",
+    "Expose qualitative choices only."
+  ],
+  "definition_of_done": [
+    "Tests pass."
+  ]
+}

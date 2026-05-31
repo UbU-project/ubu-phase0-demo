@@ -1,0 +1,38 @@
+{
+  "id": "PHASE0-T003",
+  "title": "GitHub ingestion",
+  "phase": "v1",
+  "goal": "Normalize GitHub issues and convert them to TaskSpec objects with authority_source, label mapping, safe defaults, PR exclusion, and deduplication.",
+  "allowed_files": [
+    "src/ubu_phase0/github_ingest.py",
+    "tests/test_github_issue_fixture_to_tasks.py",
+    "tests/test_github_label_mapping.py",
+    "tests/test_github_issue_deduplication.py"
+  ],
+  "forbidden_files": [
+    "src/ubu_phase0/schema.py",
+    "src/ubu_phase0/planner.py",
+    "src/ubu_phase0/loop.py",
+    "src/ubu_phase0/cli.py",
+    "src/ubu_phase0/affect.py",
+    "src/ubu_phase0/bootstrap.py"
+  ],
+  "acceptance_tests": [
+    "python -m pytest tests/test_github_issue_fixture_to_tasks.py tests/test_github_label_mapping.py tests/test_github_issue_deduplication.py"
+  ],
+  "implementation_notes": [
+    "May import schema and PyGithub only.",
+    "Exclude items with pull_request metadata.",
+    "Dedupe by source_ref; deterministic ordering.",
+    "Duplicate same-family labels: first alphabetical wins, warn.",
+    "Unknown labels preserved in raw_labels, never failure-causing.",
+    "authority_source = github_event for live, imported_config for the static fixture.",
+    "No planning, no affect-gate execution.",
+    "See PHASE0_GITHUB_INGESTION.md for the full mapping and label table."
+  ],
+  "definition_of_done": [
+    "Tests pass.",
+    "Import boundaries respected.",
+    "No GitHub mutation anywhere."
+  ]
+}

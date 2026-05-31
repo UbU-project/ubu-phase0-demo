@@ -1,0 +1,28 @@
+{
+  "id": "PHASE0-T010",
+  "title": "Log-replan (v1.5)",
+  "phase": "v1.5-reserved",
+  "goal": "Completed-task filtering, single-key log, auto-replan, Completed section above the new preview.",
+  "allowed_files": [
+    "src/ubu_phase0/planner.py",
+    "src/ubu_phase0/loop.py",
+    "src/ubu_phase0/cli.py",
+    "tests/test_log_replan.py"
+  ],
+  "forbidden_files": [
+    "src/ubu_phase0/schema.py"
+  ],
+  "acceptance_tests": [
+    "python -m pytest tests/test_log_replan.py"
+  ],
+  "implementation_notes": [
+    "DO NOT IMPLEMENT until the v1 demo path is stable.",
+    "Schema slots and fixture placeholders already reserved.",
+    "See PHASE0_PROCESS.md Section 17 for priority order."
+  ],
+  "definition_of_done": [
+    "Tests pass.",
+    "Only built after v1 is green."
+  ],
+  "status": "RESERVED \u2014 do not implement in v1"
+}

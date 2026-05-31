@@ -1,0 +1,33 @@
+{
+  "id": "PHASE0-T001",
+  "title": "Schema module (then freeze)",
+  "phase": "v1",
+  "goal": "Define the frozen Pydantic v2 schema for the phase0-profile/0.1 contract subset.",
+  "allowed_files": [
+    "src/ubu_phase0/schema.py",
+    "tests/test_schema_contract.py",
+    "tests/test_contract_roundtrip.py"
+  ],
+  "forbidden_files": [
+    "src/ubu_phase0/affect.py",
+    "src/ubu_phase0/github_ingest.py",
+    "src/ubu_phase0/planner.py",
+    "src/ubu_phase0/bootstrap.py",
+    "src/ubu_phase0/loop.py",
+    "src/ubu_phase0/cli.py"
+  ],
+  "acceptance_tests": [
+    "python -m pytest tests/test_schema_contract.py tests/test_contract_roundtrip.py"
+  ],
+  "implementation_notes": [
+    "ALREADY COMPLETED and verified. schema.py is FROZEN.",
+    "Deferred Phase 1 fields are present as Optional/sentinel, never removed.",
+    "No Omitted wrapper model."
+  ],
+  "definition_of_done": [
+    "Tests pass.",
+    "schema.py frozen.",
+    "No other module created."
+  ],
+  "status": "COMPLETE \u2014 schema frozen"
+}

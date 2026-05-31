@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ubu-phase0"
+version = "0.1.0"
+description = "UbU Phase 0 — ETHConf NYC demo prototype (CLI-only, not Phase 1)"
+requires-python = ">=3.10"
+# Core deps are PINNED to exact versions. This collapses the resolver search
+# space and prevents the ResolutionTooDeep backtracking seen with open ranges.
+# PyGithub is intentionally NOT here — it is the heaviest transitive chain
+# (cryptography, pynacl, pyjwt, deprecated) and is only needed for the LIVE
+# GitHub path. The offline demo and the entire test suite run without it.
+dependencies = [
+    "pydantic==2.9.2",
+    "typer==0.12.5",
+    "rich==13.9.4",
+]
+
+[project.optional-dependencies]
+# Live GitHub ingestion only. Install with: pip install -e ".[github]"
+github = [
+    "PyGithub==2.4.0",
+]
+# Test/lint toolchain, pinned.
+dev = [
+    "pytest==8.3.3",
+    "ruff==0.6.9",
+    "mypy==1.11.2",
+]
+
+[project.scripts]
+ubu-phase0 = "ubu_phase0.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+# The live GitHub smoke test is opt-in only. The default run never touches the
+# network. Run it manually before rehearsal with: pytest -m live_github
+addopts = "-m 'not live_github'"
+markers = [
+    "live_github: hits the real UbU-dummy/ubu-design repo; excluded by default",
+]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+# Advisory only in Phase 0. mypy warnings are reported, never block a ticket.
+python_version = "3.10"
+ignore_missing_imports = true

@@ -1,0 +1,80 @@
+{
+  "_comment": "Canonical Phase 0 fixture. Serves three roles at once: pytest fixture, --offline corpus, and the deterministic demo fallback. Shape mirrors what the live GitHub adapter produces after normalization. Dependency edges are hardcoded here (fixture mode) rather than parsed from depends-on labels.",
+  "source": {
+    "owner": "UbU-dummy",
+    "repo": "ubu-design"
+  },
+  "issues": [
+    {
+      "number": 8,
+      "title": "Write Phase 0 contract profile",
+      "body": "Define the phase0-profile/0.1 subset of the frozen planning-kernel contract.",
+      "state": "open",
+      "html_url": "https://github.com/UbU-dummy/ubu-design/issues/8",
+      "created_at": "2026-05-28T13:00:00Z",
+      "updated_at": "2026-05-28T13:00:00Z",
+      "labels": ["ubu:duration:30m", "ubu:priority:high", "ubu:energy:medium", "ubu:stress:low", "ubu:mood:calm"],
+      "pull_request": null
+    },
+    {
+      "number": 12,
+      "title": "Freeze schema module",
+      "body": "Generate schema.py and freeze it before any other implementation ticket.",
+      "state": "open",
+      "html_url": "https://github.com/UbU-dummy/ubu-design/issues/12",
+      "created_at": "2026-05-28T13:05:00Z",
+      "updated_at": "2026-05-28T13:05:00Z",
+      "labels": ["ubu:duration:30m", "ubu:priority:high", "ubu:energy:medium", "ubu:stress:medium", "ubu:mood:engaged", "ubu:depends-on:#8"],
+      "pull_request": null
+    },
+    {
+      "number": 15,
+      "title": "Generate acceptance fixtures",
+      "body": "Produce the golden fixtures the planner and ingestion tests run against.",
+      "state": "open",
+      "html_url": "https://github.com/UbU-dummy/ubu-design/issues/15",
+      "created_at": "2026-05-28T13:10:00Z",
+      "updated_at": "2026-05-28T13:10:00Z",
+      "labels": ["ubu:duration:60m", "ubu:priority:medium", "ubu:energy:medium", "ubu:stress:low", "ubu:mood:calm", "ubu:depends-on:#12"],
+      "pull_request": null
+    },
+    {
+      "number": 19,
+      "title": "Implement live GitHub ingestion adapter",
+      "body": "PyGithub read-only adapter against UbU-dummy/ubu-design. High focus, high stress.",
+      "state": "open",
+      "html_url": "https://github.com/UbU-dummy/ubu-design/issues/19",
+      "created_at": "2026-05-28T13:15:00Z",
+      "updated_at": "2026-05-28T13:15:00Z",
+      "labels": ["ubu:duration:90m", "ubu:priority:medium", "ubu:energy:high", "ubu:stress:high-risk", "ubu:mood:intense-risk", "ubu:depends-on:#12"],
+      "pull_request": null
+    },
+    {
+      "number": 23,
+      "title": "Draft the ETHConf demo script",
+      "body": "Write the operator-facing demo walkthrough. Light, creative work.",
+      "state": "open",
+      "html_url": "https://github.com/UbU-dummy/ubu-design/issues/23",
+      "created_at": "2026-05-28T13:20:00Z",
+      "updated_at": "2026-05-28T13:20:00Z",
+      "labels": ["ubu:duration:15m", "ubu:priority:low", "ubu:energy:low-ok", "ubu:stress:low", "ubu:mood:calm"],
+      "pull_request": null
+    },
+    {
+      "number": 27,
+      "title": "[PR] Bump pydantic pin",
+      "body": "This entry carries pull_request metadata and MUST be excluded by the ingestion adapter.",
+      "state": "open",
+      "html_url": "https://github.com/UbU-dummy/ubu-design/pull/27",
+      "created_at": "2026-05-28T13:25:00Z",
+      "updated_at": "2026-05-28T13:25:00Z",
+      "labels": ["ubu:duration:15m"],
+      "pull_request": {"url": "https://api.github.com/repos/UbU-dummy/ubu-design/pulls/27"}
+    }
+  ],
+  "hardcoded_dependency_edges": [
+    {"before_task_id": "github:UbU-dummy/ubu-design#8", "after_task_id": "github:UbU-dummy/ubu-design#12"},
+    {"before_task_id": "github:UbU-dummy/ubu-design#12", "after_task_id": "github:UbU-dummy/ubu-design#15"},
+    {"before_task_id": "github:UbU-dummy/ubu-design#12", "after_task_id": "github:UbU-dummy/ubu-design#19"}
+  ]
+}

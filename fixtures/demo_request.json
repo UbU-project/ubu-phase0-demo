@@ -1,0 +1,255 @@
+{
+  "schema_version": "planning-kernel-contract/0.1",
+  "profile": "planning-kernel-contract/phase0-profile/0.1",
+  "planner_version": "ubu-phase0/0.1.0",
+  "request_id": "req-phase0-demo-0001",
+  "effective_time": "2026-06-09T09:00:00Z",
+  "generated_at": "2026-06-09T08:59:00Z",
+  "mode": "fresh_generation",
+  "rng_seed": 20260609,
+  "time_window": {
+    "start_time": "2026-06-09T09:00:00Z",
+    "end_time": "2026-06-09T13:00:00Z",
+    "planning_delta_seconds": 60
+  },
+  "horizon_policy": {
+    "reactive_horizon_seconds": 3600,
+    "branch_coverage_target": null
+  },
+  "compute_budget": {
+    "max_planning_tasks": 256,
+    "n_candidates": 1,
+    "n_rollouts": 0,
+    "k_candidates": 1,
+    "max_wall_clock_ms": null
+  },
+  "task_graph": {
+    "tasks": [
+      {
+        "id": "github:UbU-dummy/ubu-design#8",
+        "title": "Write Phase 0 contract profile",
+        "description": "Define the phase0-profile/0.1 subset of the frozen planning-kernel contract.",
+        "source": "github_issue",
+        "source_ref": "github:UbU-dummy/ubu-design#8",
+        "external_id": "8",
+        "external_url": "https://github.com/UbU-dummy/ubu-design/issues/8",
+        "authority_source": "imported_config",
+        "duration": {
+          "type": "fixed",
+          "seconds": 1800
+        },
+        "priority": "high",
+        "affect_requirement": {
+          "energy": 5.0,
+          "stress": 3.0,
+          "mood_intensity": 3.0
+        },
+        "dependencies": [],
+        "raw_labels": [
+          "ubu:duration:30m",
+          "ubu:priority:high",
+          "ubu:energy:medium",
+          "ubu:stress:low",
+          "ubu:mood:calm"
+        ]
+      },
+      {
+        "id": "github:UbU-dummy/ubu-design#12",
+        "title": "Freeze schema module",
+        "description": "Generate schema.py and freeze it before any other implementation ticket.",
+        "source": "github_issue",
+        "source_ref": "github:UbU-dummy/ubu-design#12",
+        "external_id": "12",
+        "external_url": "https://github.com/UbU-dummy/ubu-design/issues/12",
+        "authority_source": "imported_config",
+        "duration": {
+          "type": "fixed",
+          "seconds": 1800
+        },
+        "priority": "high",
+        "affect_requirement": {
+          "energy": 5.0,
+          "stress": 5.0,
+          "mood_intensity": 5.0
+        },
+        "dependencies": [
+          "github:UbU-dummy/ubu-design#8"
+        ],
+        "raw_labels": [
+          "ubu:duration:30m",
+          "ubu:priority:high",
+          "ubu:energy:medium",
+          "ubu:stress:medium",
+          "ubu:mood:engaged",
+          "ubu:depends-on:#8"
+        ]
+      },
+      {
+        "id": "github:UbU-dummy/ubu-design#15",
+        "title": "Generate acceptance fixtures",
+        "description": "Produce the golden fixtures the planner and ingestion tests run against.",
+        "source": "github_issue",
+        "source_ref": "github:UbU-dummy/ubu-design#15",
+        "external_id": "15",
+        "external_url": "https://github.com/UbU-dummy/ubu-design/issues/15",
+        "authority_source": "imported_config",
+        "duration": {
+          "type": "fixed",
+          "seconds": 3600
+        },
+        "priority": "medium",
+        "affect_requirement": {
+          "energy": 5.0,
+          "stress": 3.0,
+          "mood_intensity": 3.0
+        },
+        "dependencies": [
+          "github:UbU-dummy/ubu-design#12"
+        ],
+        "raw_labels": [
+          "ubu:duration:60m",
+          "ubu:priority:medium",
+          "ubu:energy:medium",
+          "ubu:stress:low",
+          "ubu:mood:calm",
+          "ubu:depends-on:#12"
+        ]
+      },
+      {
+        "id": "github:UbU-dummy/ubu-design#19",
+        "title": "Implement live GitHub ingestion adapter",
+        "description": "PyGithub read-only adapter against UbU-dummy/ubu-design. High focus, high stress.",
+        "source": "github_issue",
+        "source_ref": "github:UbU-dummy/ubu-design#19",
+        "external_id": "19",
+        "external_url": "https://github.com/UbU-dummy/ubu-design/issues/19",
+        "authority_source": "imported_config",
+        "duration": {
+          "type": "fixed",
+          "seconds": 5400
+        },
+        "priority": "medium",
+        "affect_requirement": {
+          "energy": 8.0,
+          "stress": 8.0,
+          "mood_intensity": 8.0
+        },
+        "dependencies": [
+          "github:UbU-dummy/ubu-design#12"
+        ],
+        "raw_labels": [
+          "ubu:duration:90m",
+          "ubu:priority:medium",
+          "ubu:energy:high",
+          "ubu:stress:high-risk",
+          "ubu:mood:intense-risk",
+          "ubu:depends-on:#12"
+        ]
+      },
+      {
+        "id": "github:UbU-dummy/ubu-design#23",
+        "title": "Draft the ETHConf demo script",
+        "description": "Write the operator-facing demo walkthrough. Light, creative work.",
+        "source": "github_issue",
+        "source_ref": "github:UbU-dummy/ubu-design#23",
+        "external_id": "23",
+        "external_url": "https://github.com/UbU-dummy/ubu-design/issues/23",
+        "authority_source": "imported_config",
+        "duration": {
+          "type": "fixed",
+          "seconds": 900
+        },
+        "priority": "low",
+        "affect_requirement": {
+          "energy": 3.0,
+          "stress": 2.0,
+          "mood_intensity": 2.0
+        },
+        "dependencies": [],
+        "raw_labels": [
+          "ubu:duration:15m",
+          "ubu:priority:low",
+          "ubu:energy:low-ok",
+          "ubu:stress:low",
+          "ubu:mood:calm"
+        ]
+      }
+    ],
+    "dependency_edges": [
+      {
+        "before_task_id": "github:UbU-dummy/ubu-design#8",
+        "after_task_id": "github:UbU-dummy/ubu-design#12"
+      },
+      {
+        "before_task_id": "github:UbU-dummy/ubu-design#12",
+        "after_task_id": "github:UbU-dummy/ubu-design#15"
+      },
+      {
+        "before_task_id": "github:UbU-dummy/ubu-design#12",
+        "after_task_id": "github:UbU-dummy/ubu-design#19"
+      }
+    ],
+    "topological_order": null
+  },
+  "universe_state_snapshot": {
+    "snapshot_id": "snap-phase0-demo-0001",
+    "snapshot_effective_time": "2026-06-09T09:00:00Z",
+    "state_refs": [],
+    "payload_policy_summary": "not_supported"
+  },
+  "affect_profile": {
+    "energy": {
+      "dimension": "energy",
+      "direction": "higher_is_better",
+      "location": 4.0,
+      "scale": 1.5,
+      "threshold": 0.5,
+      "freshness_seconds": null
+    },
+    "stress": {
+      "dimension": "stress",
+      "direction": "lower_is_better",
+      "location": 7.0,
+      "scale": 1.5,
+      "threshold": 0.5,
+      "freshness_seconds": null
+    },
+    "mood_intensity": {
+      "dimension": "mood_intensity",
+      "direction": "lower_is_better",
+      "location": 8.0,
+      "scale": 1.5,
+      "threshold": 0.5,
+      "freshness_seconds": null
+    },
+    "preset_labels": {
+      "energy": "medium",
+      "stress": "low",
+      "mood_intensity": "calm"
+    },
+    "needs_review": true
+  },
+  "scoring_policy": {
+    "utility_weight": 1.0,
+    "robustness_weight": 0.0,
+    "affect_margin_weight": 1.0,
+    "schedule_diversity_weight": 0.0
+  },
+  "constraint_policy": {
+    "hard_constraints_always_required": true,
+    "affect_constraint_mode": "enforce"
+  },
+  "privacy_and_provenance": {
+    "compartment_ids": [],
+    "redaction_level": "public_demo",
+    "payload_safety_proof": "not_supported",
+    "payload_verified_safe": true
+  },
+  "explanation_request": {
+    "include_rejection_summary": true,
+    "include_score_breakdown": false,
+    "include_user_facing_fragments": true
+  },
+  "external_event_assumptions": [],
+  "repair_context": null
+}

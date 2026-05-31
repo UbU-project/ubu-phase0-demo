@@ -1,0 +1,30 @@
+{
+  "id": "PHASE0-T007",
+  "title": "Loop (orchestration + claim register)",
+  "phase": "v1",
+  "goal": "Orchestrate: select source (live vs --offline), call github_ingest, apply dependency overlay, build PlanningRequest, call planner, load+validate the claim register (return a structured object), assemble a display-ready result.",
+  "allowed_files": [
+    "src/ubu_phase0/loop.py",
+    "tests/test_missing_github_token_uses_fixture.py",
+    "tests/test_dependency_overlay.py"
+  ],
+  "forbidden_files": [
+    "src/ubu_phase0/schema.py",
+    "src/ubu_phase0/cli.py"
+  ],
+  "acceptance_tests": [
+    "python -m pytest tests/test_missing_github_token_uses_fixture.py tests/test_dependency_overlay.py"
+  ],
+  "implementation_notes": [
+    "Hard switch: live by default; --offline reads the fixture; NO auto-fallback.",
+    "Missing/invalid token, network error, rate limit in LIVE mode => clean message, non-zero exit. NOT fallback.",
+    "No persistent cache.",
+    "Claim-register loader returns a structured object, not a string. No claims.py module.",
+    "Live depends-on labels build edges; fixture edges are hardcoded.",
+    "Missing depends-on target: warn, treat absent, log."
+  ],
+  "definition_of_done": [
+    "Tests pass.",
+    "No auto-fallback, no cache."
+  ]
+}

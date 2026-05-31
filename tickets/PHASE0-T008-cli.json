@@ -1,0 +1,31 @@
+{
+  "id": "PHASE0-T008",
+  "title": "CLI",
+  "phase": "v1",
+  "goal": "Typer commands demo and refresh; Rich Calendar table (time, label, source, affect-margin); --offline flag; probability/coverage footer; claim summary.",
+  "allowed_files": [
+    "src/ubu_phase0/cli.py",
+    "tests/test_cli_demo_smoke.py",
+    "tests/test_cli_refresh_smoke.py"
+  ],
+  "forbidden_files": [
+    "src/ubu_phase0/schema.py",
+    "src/ubu_phase0/planner.py",
+    "src/ubu_phase0/github_ingest.py"
+  ],
+  "acceptance_tests": [
+    "python -m pytest tests/test_cli_demo_smoke.py tests/test_cli_refresh_smoke.py"
+  ],
+  "implementation_notes": [
+    "May import loop, schema (display types), Rich, Typer.",
+    "No planning logic, no issue-to-task mapping here.",
+    "Affect margin rendered as three-char visual: low/medium/healthy.",
+    "Footer: probability_quality: not_estimated; coverage_estimate: \u2014 (Phase 1 will populate).",
+    "demo --offline must exit 0 and show data source, preview, claim summary.",
+    "See PHASE0_DEMO_SCRIPT.md for output sections and column layout."
+  ],
+  "definition_of_done": [
+    "Smoke tests pass.",
+    "demo --offline runs end to end."
+  ]
+}

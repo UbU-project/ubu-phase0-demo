@@ -1,0 +1,28 @@
+{
+  "id": "PHASE0-T002",
+  "title": "Fixtures",
+  "phase": "v1",
+  "goal": "Provide golden fixtures: static dummy issues, demo request, empty log, claim register, plus v1.5 placeholders.",
+  "allowed_files": [
+    "fixtures/static_dummy_issue.json",
+    "fixtures/demo_request.json",
+    "fixtures/demo_log_empty.json",
+    "fixtures/claim_register.json",
+    "tests/test_contract_roundtrip.py"
+  ],
+  "forbidden_files": [
+    "src/ubu_phase0/schema.py"
+  ],
+  "acceptance_tests": [
+    "python -m pytest tests/test_contract_roundtrip.py"
+  ],
+  "implementation_notes": [
+    "ALREADY COMPLETED. demo_request.json built from the frozen schema and validated.",
+    "static_dummy_issue.json carries hardcoded dependency edges and one PR (#27) that ingestion must exclude.",
+    "v1.5 placeholders reserved: demo_log_after_task1.json, demo_response_*.expected.json, impossible_dependency_demo.json."
+  ],
+  "definition_of_done": [
+    "Round-trip test passes."
+  ],
+  "status": "COMPLETE"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "PHASE0-T004",
+  "title": "Affect gate",
+  "phase": "v1",
+  "goal": "Implement the affect preset table, the qualitative-preset-to-sigmoid expansion (a standalone pure function), sigmoid evaluation, and per-task affect-feasibility checks.",
+  "allowed_files": [
+    "src/ubu_phase0/affect.py",
+    "tests/test_affect_gate_rejection.py"
+  ],
+  "forbidden_files": [
+    "src/ubu_phase0/schema.py",
+    "src/ubu_phase0/planner.py",
+    "src/ubu_phase0/github_ingest.py",
+    "src/ubu_phase0/loop.py",
+    "src/ubu_phase0/cli.py",
+    "src/ubu_phase0/bootstrap.py"
+  ],
+  "acceptance_tests": [
+    "python -m pytest tests/test_affect_gate_rejection.py"
+  ],
+  "implementation_notes": [
+    "May import schema and math only.",
+    "Preset table values are in PHASE0_CONTRACT_PROFILE.md; copy them exactly.",
+    "sigmoid satisfaction: higher_is_better -> sigmoid((x-location)/scale); lower_is_better -> sigmoid((location-x)/scale).",
+    "Feasible iff every active dimension satisfaction >= threshold.",
+    "Preset-to-profile mapping MUST be callable outside any CLI flow (reused by v1.5 recalibrate).",
+    "Do not expose raw sigmoid parameters to users."
+  ],
+  "definition_of_done": [
+    "Tests pass.",
+    "Import boundaries respected."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "PHASE0-T005",
+  "title": "Planner",
+  "phase": "v1",
+  "goal": "Implement planner(request, logs) -> PlanningResponse: DAG validation, topological order, fixed-duration scheduling into the 4h window, affect integration, semi-legitimization, candidate ranking, internal explanations, diagnostics.",
+  "allowed_files": [
+    "src/ubu_phase0/planner.py",
+    "tests/test_topological_order.py",
+    "tests/test_calendar_preview_next_four_hours.py",
+    "tests/test_affect_gate_rejection.py"
+  ],
+  "forbidden_files": [
+    "src/ubu_phase0/schema.py",
+    "src/ubu_phase0/github_ingest.py",
+    "src/ubu_phase0/loop.py",
+    "src/ubu_phase0/cli.py",
+    "src/ubu_phase0/bootstrap.py"
+  ],
+  "acceptance_tests": [
+    "python -m pytest tests/test_topological_order.py tests/test_calendar_preview_next_four_hours.py tests/test_affect_gate_rejection.py"
+  ],
+  "implementation_notes": [
+    "May import schema and affect only.",
+    "PURE: no file I/O, no env vars, no GitHub, no mutation of request.",
+    "Derive effective task set from request + logs: filter completed, flag blocked, ignore skipped.",
+    "Auto-select top (or first-equal) candidate as default Plan.",
+    "Semi-legitimization implemented; full legitimization stubbed.",
+    "Generate explanations internally; do NOT create an explanations module.",
+    "Set probability_quality = not_estimated; leave coverage fields null.",
+    "Reject dependency cycles with a clear diagnostic."
+  ],
+  "definition_of_done": [
+    "Tests pass.",
+    "Planner purity enforced.",
+    "No Phase 1 features."
+  ]
+}
