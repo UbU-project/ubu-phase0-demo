@@ -1,7 +1,6 @@
 """PHASE0-T003: label mapping rules acceptance tests."""
 
 import warnings
-from typing import Any
 
 from ubu_phase0.github_ingest import _make_task_id, _parse_labels
 from ubu_phase0.schema import FixedDuration, Priority
