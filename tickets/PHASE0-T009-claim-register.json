@@ -5,7 +5,8 @@
   "goal": "Validate the claim register: every implemented claim names an existing passing test; statuses valid; required demo claims present.",
   "allowed_files": [
     "fixtures/claim_register.json",
-    "tests/test_claim_register_completeness.py"
+    "tests/test_claim_register_completeness.py",
+    "tests/test_import_boundaries.py"
   ],
   "forbidden_files": [
     "src/ubu_phase0/schema.py",

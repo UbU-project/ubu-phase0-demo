@@ -56,6 +56,13 @@
       "status": "deferred",
       "modules": ["planner"],
       "test": "test_contract_roundtrip"
+    },
+    {
+      "id": "CR-009",
+      "claim": "UbU enforces module import boundaries so planning logic cannot be contaminated by I/O or higher-layer modules",
+      "status": "implemented",
+      "modules": ["schema", "affect", "planner", "github_ingest"],
+      "test": "test_import_boundaries"
     }
   ]
 }
